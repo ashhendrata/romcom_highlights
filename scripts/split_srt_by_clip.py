@@ -28,9 +28,6 @@ def split_srt(input_path, output_dir, clip_duration=10):
     print(f"Created {len(clips)} clip transcripts in {output_dir}")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python scripts/split_srt_by_clip.py dataset/video1/transcripts/video1.srt dataset/video1/transcripts")
-        sys.exit(1)
 
     input_srt = sys.argv[1]
     output_dir = sys.argv[2]
