@@ -1,6 +1,5 @@
 # 🌹 Multimodal Highlight Detection in Rom-Coms ❤️
 
-## Overview
 This project is an end-to-end pipeline that automatically finds and stitches together the most emotionally charged “climax” moments from short romantic comedies. We split each film into 10-second clips, extract three modalities of features (text from subtitles, audio via Mel-Frequency Cepstral Coefficients (MFCCs), and visual via ResNet-18), and train a logistic‐regression classifier, a random forest classifier, and a gradient-boosted classifier to decide which clips belong in the highlight reel. 
 
 ## Replication Instructions
@@ -18,7 +17,7 @@ highlights-final-project/
 │   │   ├── clips/        #10s mp4 files that make up the rom-coms (clip_000.mp4, ...)
 │   │   ├── audio/        #clip_*.wav which are 10s audio clips extracted from the videos from clips/ folder (clip_000.wav, ...)
 │   │   ├── frames/       #clip_*/frame_*.jpg catagorized into folders according to the 10s clips (clip_000/frame_001.jpg, ...)
-│   │   └── transcripts/  #clip*.srt (clip000.srt, ...) and the full transcript named videoX.srt
+│   │   ├── transcripts/  #clip*.srt (clip000.srt, ...) and the full transcript named videoX.srt
 │   │   └── labels.csv    # contains labels for each clip, including highlight (1) or non-highlight (0)
 │   ├── video2/ and so on...
 ├── scripts/
@@ -84,7 +83,7 @@ process_video.py runs the following:
 - python scripts/segment_video.py {raw_video} {clips}
 - python scripts/extract_audio.py {clips} {audio}                                   # MFCC mean and variance
 - python scripts/extract_frames.py {clips} {frames}                                 # ResNet-18 pooled frames
-- whisper {raw_video} --model medium --output_format srt --output_dir {transcripts} # generates transcripts of rom-coms
+- whisper {raw_video} --model medium --language en --output_format srt --output_dir {transcripts} # generates transcripts of rom-coms
 - python scripts/split_srt_by_clip.py {final_srt} {transcripts}                     # splits transcripts into 10s segments
 
 
@@ -136,16 +135,14 @@ python scripts/train_boosting.py
 ```
 python scripts/predict_highlights.py videoX
 ```
-2. Then run this to stitch the clips together:
-```
-ffmpeg -f concat -safe 0 -i dataset/videoX/concat_videoX.txt -c copy dataset/videoX/highlight_reel_videoX.mp4
-```
-
 However, if the rom-com is labelled, run the following:
 ```
 python scripts/stitch_highlights.py videoX
 ```
-
+2. Then run this to stitch the clips together:
+```
+ffmpeg -f concat -safe 0 -i dataset/videoX/concat_videoX.txt -c copy dataset/videoX/highlight_reel_videoX.mp4
+```
 
 ### Evaluation
 We report per-class precision, recall, F1, and support on the held-out film.
@@ -162,6 +159,15 @@ python scripts/count_clips.py
 ### For preliminary stages:
 
 While the proof‐of‐concept project demonstrates that simple multimodal features can surface emotionally charged climaxes, there are several next steps of varying feasibility to explore. First, expanding beyond 6 short films to a larger and more diverse set of rom-coms (possibly including full-length features) would improve model generalization and allow us to fine-tune deep architectures like multimodal transformers. Second, incorporating facial expression classifiers, speech sentiment analysis, or scene-graph understanding could help the model better distinguish between subtle versus overt climactic moments. For instance, a romantic gesture like a kiss would not necessarily mean the clip is a highlight. Third, a study to evaluate perceived highlight quality and adjust our definition of “highlight” based on human judgment would mitigate the limitations of human (my own) subjectivity. Finally, moving toward semi- or un-supervised methods (e.g., autoencoders trained on user-edited highlight reels) could reduce the need for manual labels and adapt dynamically to different genres.
+
+However, given the time constraints for the next milestone, I plan to focus on the following:
+1.	Expand the dataset
+2.	Explore other features or architectures:
+    - Transcript sentiment scores
+    - Ensemble methods (e.g. random forests)
+3. Compare with a MLP and other classifiers
+4. Output a highlight reel for every input
+
 
 ### For the final presentation:
 
