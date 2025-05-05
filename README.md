@@ -12,6 +12,7 @@ By following the instructions below, you should be able to create the following 
 ```text
 highlights-final-project/
 ├── dataset/
+│   ├── yt_links.csv # for keeping track of corresponding YouTube links   
 │   ├── video1/
 │   │   ├── raw_video.mp4 # downloaded from YouTube
 │   │   ├── clips/        #10s mp4 files that make up the rom-coms (clip_000.mp4, ...)
@@ -22,7 +23,7 @@ highlights-final-project/
 │   ├── video2/ and so on...
 ├── scripts/
 │   ├── process_video.py
-│   ├── count_clips.py                # prints % climactic vs non-climactic clips
+│   ├── count_clips.py
 │   ├── aggregate_data.py
 │   ├── extract_text_features.py
 │   ├── extract_audio_features.py
@@ -42,6 +43,9 @@ highlights-final-project/
 │   ├── 
 └── README.md
 ```
+*Note*:
+- *all the files in processed/ were in a file level higher when all the processing, training, and testing were happening. They were moved into the folder after for organization purposes.*
+- *data was not committed and pushed due to large sizes. However, replication instructions would result in the same dataset/ folder*
 
 ### Downloading Rom-Coms
 
@@ -88,18 +92,14 @@ process_video.py runs the following:
 
 1. To extract textual, auditory, and visual features, run the following:
 ```
-python scripts/extract_text_features.py    # generates text_features.csv
-```
-```
-python scripts/extract_audio_features.py   # generates audio_features.csv
-```
-```
-python scripts/extract_visual_features.py  # generates visual_features.pkl
+python scripts/extract_text_features.py   # generates text_features.csv
+python scripts/extract_audio_features.py  # generates audio_features.csv
+python scripts/extract_visual_features.py # generates visual_features.pkl
 ```
 *Note: Loading a .pkl is usually much quicker than parsing a CSV, which is important here due to the massive number of frames to process.*
 2. Merging all of the above with: 
 ```
-python scripts/merge_features.py           # generates final_features.pkl
+python scripts/merge_features.py # generates final_features.pkl
 ```
 
 ### Training and Evaluating a Classifier
