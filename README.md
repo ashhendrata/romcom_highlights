@@ -179,7 +179,7 @@ Looking ahead, a possible next step is to combine the three classifiers into an 
 ## Contributions
 
 Thank you for being here! This was a solo project with the following stages:
-1. **Data Collection and Annotation (about 20 hours)**: selected and downloaded 6 short rom-coms, determined labeling guidelines, and manually annotated clips.
+1. **Data Collection and Annotation (about 20 hours)**: selected and downloaded over 300 clips, determined labeling guidelines, and manually annotated clips.
 2. **Preprocessing and Feature Handling (about 20 h)**: implemented and refined scripts for segmentation, transcript splitting, feature extraction (textual, audtory, visual), and feature merging.
 3. **Modeling & Evaluation (about 15 h)**: created MFCC, BERT, and ResNet-18 feature pipelines, trained and finetuned logistic regression, random forest, and gradient-boosted classifiers.
 4. **Poster Creation and Documentation (about 10 h)**: designed graphics for poster, drafted README (especially the replication instructions), and ensured steps were reproducable and detailed.
