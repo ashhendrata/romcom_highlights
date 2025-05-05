@@ -184,6 +184,13 @@ Thank you for being here! This was a solo project with the following stages:
 3. **Modeling & Evaluation (about 15 h)**: created MFCC, BERT, and ResNet-18 feature pipelines, trained and finetuned logistic regression, random forest, and gradient-boosted classifiers.
 4. **Poster Creation and Documentation (about 10 h)**: designed graphics for poster, drafted README (especially the replication instructions), and ensured steps were reproducable and detailed.
 
+## References
+- Abdul, Z. K., & Al-Talabani, A. K. (2022). Mel frequency cepstral coefficient and its applications: A review. IEEE Access, 10, 122136-122158.
+- Ramón-Ferrer, V., Badenes-Olmedo, C., & Corcho, O. (2023, December). Automatic Topic Label Generation using Conversational Models. In Proceedings of the 12th Knowledge Capture Conference 2023 (pp. 17-24).
+- Spiller, T. R., Rabe, F., Ben-Zion, Z., Korem, N., Burrer, A., Homan, P., ... & Duek, O. (2023). Efficient and Accurate Transcription in Mental Health Research-A Tutorial on Using Whisper AI for Audio File Transcription. OSF Preprint. https://doi. org/10.31219/osf. io/9fue8.
+- Tomar, S. (2006). Converting video formats with FFmpeg. Linux Journal, 2006(146). https://doi.org/10.5555/1134782.1134792
+- Xu, J., & Wang, X. (2021). Rethinking self-supervised correspondence learning: A video frame-level similarity perspective. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 10075-10085). 
+
 
 
 
