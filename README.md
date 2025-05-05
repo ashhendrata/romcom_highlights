@@ -145,7 +145,9 @@ ffmpeg -f concat -safe 0 -i dataset/videoX/concat_videoX.txt -c copy dataset/vid
 ```
 
 ### Evaluation
-We report per-class precision, recall, F1, and support on the held-out film.
+We report per-class precision, recall, F1 score, and support, with special attention to the F1 Scores and recall.
+- F1 Score: We care about the minority class (highlights) but also value a tradeoff between missing positives and making false alarms.
+- Recall: It is important to not miss any of the minority class (highlights).
 
 #### Clip-count baseline
 
@@ -171,13 +173,13 @@ However, given the time constraints for the next milestone, I plan to focus on t
 
 ### For the final presentation:
 
-
+Looking ahead, a possible next step is to combine the three classifiers into an ensemble to leverage their complementary strengths and improve overall robustness. I can also move beyond 10 second segments by incorporating temporal context with an LSTM or small transformer over successive clip embeddings, smoothing predictions and capturing the narrative build-up. In the modeling sphere, I think we should explore the deep architectures mentioned above. To reduce annotation effort and adapt to new films, active-learning or semi-supervised pretraining as mentioned previously would focus labeling where it’s most informative. Regardless, delving deeper into the project made me realize the importance of the user study to help calibrate what can be really subjective.
 
 
 ## Contributions
 
 Thank you for being here! This was a solo project with the following stages:
-1. **Data Collection and Annotation (about 20 hours)**: selected and downloaded 10 short rom-coms, determined labeling guidelines, and manually annotated clips.
+1. **Data Collection and Annotation (about 20 hours)**: selected and downloaded 6 short rom-coms, determined labeling guidelines, and manually annotated clips.
 2. **Preprocessing and Feature Handling (about 20 h)**: implemented and refined scripts for segmentation, transcript splitting, feature extraction (textual, audtory, visual), and feature merging.
 3. **Modeling & Evaluation (about 15 h)**: created MFCC, BERT, and ResNet-18 feature pipelines, trained and finetuned logistic regression, random forest, and gradient-boosted classifiers.
 4. **Poster Creation and Documentation (about 10 h)**: designed graphics for poster, drafted README (especially the replication instructions), and ensured steps were reproducable and detailed.
