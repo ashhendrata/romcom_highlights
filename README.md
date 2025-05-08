@@ -149,12 +149,16 @@ We report per-class precision, recall, F1 score, and support, with special atten
 - F1 Score: We care about the minority class (highlights) but also value a tradeoff between missing positives and making false alarms.
 - Recall: It is important to not miss any of the minority class (highlights).
 
+For non-highlights, gradient boosting (XGBoost) had the best performance with an F1 score of 0.750 and a recall of 0.9. For the highlights, the random forest model appeared to outperform the other two models with an F1 score of 0.462 and a recall of 0.5. The primary goal is find rare “highlight” clips while still keeping a reasonable false-positive rate. Thus, Random Forest’s balance makes it the strongest choice.
+
 #### Clip-count baseline
 
 To see what fraction of clips are non-climactic (your majority-class baseline), run:
 ```
 python scripts/count_clips.py
 ```
+
+Highlights make up 24.1% of all clips.
 
 ## Future Directions
 
