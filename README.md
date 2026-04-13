@@ -179,8 +179,7 @@ However, given the time constraints for the next milestone, I plan to focus on t
 
 Looking ahead, a possible next step is to combine the three classifiers into an ensemble to leverage their complementary strengths and improve overall robustness. I can also move beyond 10 second segments by incorporating temporal context with an LSTM or small transformer over successive clip embeddings, smoothing predictions and capturing the narrative build-up. In the modeling sphere, I think we should explore the deep architectures mentioned above. To reduce annotation effort and adapt to new films, active-learning or semi-supervised pretraining as mentioned previously would focus labeling where it’s most informative. Regardless, delving deeper into the project made me realize the importance of the user study to help calibrate what can be really subjective.
 
-[ashley hendrata ml prelim poster (1).pdf](https://github.com/user-attachments/files/26666303/ashley.hendrata.ml.prelim.poster.1.pdf)
-
+<img width="2500" height="2034" alt="ashley hendrata ml prelim poster" src="https://github.com/user-attachments/assets/55870f15-f6ae-4b6b-a29b-888ad4037cd0" />
 
 
 ## Contributions
